@@ -1,4 +1,4 @@
-import { Feature } from '../service/feature-toggles.service';
+import { Feature } from './feature';
 
 export class FeatureFlagConfig {
     'user-level'?: string;

@@ -1,15 +1,15 @@
 import { Location } from '@angular/common';
-import { ErrorHandler, Inject, Injectable, OpaqueToken } from '@angular/core';
+import {ErrorHandler, Inject, Injectable, InjectionToken} from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import {
   isEqual as deepEqual,
   sortBy
 } from 'lodash';
-import { Logger } from 'ngx-base';
 import { AuthenticationService } from 'ngx-login-client';
 import { Observable } from 'rxjs';
+import { Feature } from '../models/feature';
 
-export let FABRIC8_FEATURE_TOGGLES_API_URL = new OpaqueToken('fabric8.feature.toggles.api.url');
+export let FABRIC8_FEATURE_TOGGLES_API_URL = new InjectionToken('fabric8.feature.toggles.api.url');
 
 let featureTogglesApiUrlFactory = () => {
   return process.env.FABRIC8_FEATURE_TOGGLES_API_URL;
@@ -28,7 +28,6 @@ export class FeatureTogglesService {
 
   constructor(
     private http: Http,
-    private logger: Logger,
     private errorHandler: ErrorHandler,
     private auth: AuthenticationService,
     @Inject(FABRIC8_FEATURE_TOGGLES_API_URL) apiUrl: string) {
@@ -134,22 +133,7 @@ export class FeatureTogglesService {
   }
 
   private handleError(error: any) {
-    this.logger.error(error);
     this.errorHandler.handleError(error);
     return Observable.throw(error.message || error);
   }
-}
-export class Feature {
-  attributes: FeatureAttributes;
-  id?: string;
-}
-
-export class FeatureAttributes {
-  'name': string;
-  'description'?: string;
-  // feature is enabled at feature level.
-  'enabled'?: boolean;
-  'enablement-level'?: string;
-  // user has the enablement-level that make this feature enabled.
-  'user-enabled'?: boolean;
 }

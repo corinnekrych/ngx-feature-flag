@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'f8-feature-flag-home',
-  templateUrl: './feature-flag-home.component.html'
+  template: `<f8-feature-warning-page level="{{featureEnablementLevel}}"></f8-feature-warning-page>`
 })
 export class FeatureFlagHomeComponent implements OnInit, OnDestroy {
   private subcription: Subscription;

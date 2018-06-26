@@ -5,7 +5,8 @@ import { MockBackend } from '@angular/http/testing';
 import { cloneDeep } from 'lodash';
 import { Logger } from 'ngx-base';
 import { AuthenticationService } from 'ngx-login-client';
-import { FABRIC8_FEATURE_TOGGLES_API_URL, Feature, FeatureTogglesService} from './feature-toggles.service';
+import { FABRIC8_FEATURE_TOGGLES_API_URL, FeatureTogglesService} from './feature-toggles.service';
+import { Feature } from '../models/feature';
 
 describe('FeatureToggles service: it', () => {
   let mockLog: any;

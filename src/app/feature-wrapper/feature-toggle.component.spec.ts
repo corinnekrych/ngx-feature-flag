@@ -3,8 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs';
-import { Feature, FeatureTogglesService } from '../service/feature-toggles.service';
+import { FeatureTogglesService } from '../service/feature-toggles.service';
 import { FeatureToggleComponent } from './feature-toggle.component';
+import { Feature } from '../models/feature';
 
 describe('FeatureToggleComponent', () => {
   let featureServiceMock: any;

@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs';
 import { FeatureFlagMapping } from '../feature-flag.mapping';
-import { Feature, FeatureTogglesService } from '../service/feature-toggles.service';
+import { FeatureTogglesService } from '../service/feature-toggles.service';
 import { FeatureContainerComponent } from './feature-loader.component';
+import { Feature } from '../models/feature';
 
 
 @Component({

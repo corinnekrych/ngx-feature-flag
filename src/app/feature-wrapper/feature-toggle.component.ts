@@ -3,7 +3,8 @@ import {
   Input,
   OnInit
 } from '@angular/core';
-import { Feature, FeatureTogglesService } from '../service/feature-toggles.service';
+import { FeatureTogglesService } from '../service/feature-toggles.service';
+import { Feature } from '../models/feature';
 
 @Component({
   selector: 'f8-feature-toggle',
